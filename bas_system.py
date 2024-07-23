@@ -7,12 +7,14 @@ import matplotlib.pyplot as plt
 cur_path = os.getcwd()
 
 from panel_design import *
-
+from layout_visualization import *
 mission_details = {
     'mission_name': 'Space_station_base_module',
-    'L': 9.6,
+    'L': 8,
     'W': 2.82,
-    'packing_eff': 0.85,
+    'packing_eff': 0.91,
+    'sub_panel_num_width': 2,
+    'sub_panel_num_height': 3,
     'bus_vlt': 100,
     'harn_drop': 7,
     'des_T': 80,
@@ -41,3 +43,4 @@ cell_details = {
 
 ns, n_p, i_l = pan_cur(cell_details=cell_details, mission_details=mission_details)
 _,_,t_results = temp_pan_cur(cell_details=cell_details, mission_details=mission_details)
+n_p_from_layout = layout(ns = ns, mission_details=mission_details)
